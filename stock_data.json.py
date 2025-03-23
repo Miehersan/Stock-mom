@@ -23,8 +23,8 @@ log_return_12m.columns = log_return_12m.columns.map(str)  # 確保欄位名稱�
 latest_date = str(log_return_12m.columns[-1])
                   
 
-# 篩選 12 個月對數收益率最高的前 10 檔股票
-top_10_stocks = log_return_12m.nlargest(10, latest_date)[['代號', '名稱', latest_date]]
+# 篩選 12 個月對數收益率最高的前 100 檔股票
+top_10_stocks = log_return_12m.nlargest(100, latest_date)[['代號', '名稱', latest_date]]
 
 # 存成 JSON 格式（方便 GitHub Pages 使用）
 data = top_10_stocks.to_dict(orient="records")
